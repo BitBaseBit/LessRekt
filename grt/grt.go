@@ -72,7 +72,6 @@ func QueryAllPairs() map[string]PairData {
 			  }
 			}`}
 			jsonValue, _ := jsoniter.ConfigFastest.Marshal(jsonData)
-			//jsonReq := []byte(payload)
 			resp, err := http.Post(g_GRTUniV2, "application/json", bytes.NewBuffer(jsonValue))
 			if err != nil {
 				fmt.Println("IN ERROR")
@@ -149,7 +148,6 @@ func QueryAllPairs() map[string]PairData {
 					  }
 				}`, remainingPairs, lastID)}
 				jsonValue, _ := jsoniter.ConfigFastest.Marshal(jsonData)
-				//jsonReq := []byte(payload)
 				resp, err := http.Post(g_GRTUniV2, "application/json", bytes.NewBuffer(jsonValue))
 				if err != nil {
 					fmt.Println("IN ERROR")
@@ -226,7 +224,6 @@ func QueryAllPairs() map[string]PairData {
 			  }
 			}`, lastID)}
 			jsonValue, _ := jsoniter.ConfigFastest.Marshal(jsonData)
-			//jsonReq := []byte(payload)
 			resp, err := http.Post(g_GRTUniV2, "application/json", bytes.NewBuffer(jsonValue))
 			if err != nil {
 				fmt.Println("IN ERROR")
@@ -325,7 +322,6 @@ func QueryGRT(tokenAddress string) int {
         `, strings.ToLower(tokenAddress)),
 	}
 	jsonValue, _ := jsoniter.ConfigFastest.Marshal(jsonData)
-	//jsonReq := []byte(payload)
 	resp, err := http.Post(g_GRTUniV2, "application/json", bytes.NewBuffer(jsonValue))
 	if err != nil {
 		fmt.Println("IN ERROR")
