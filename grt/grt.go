@@ -15,6 +15,8 @@ import (
 
 var json = jsoniter.ConfigFastest
 
+const MIN_TX_COUNT = 500
+
 const g_GRTUniV2 string = "https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v2"
 
 type PairData struct {
@@ -91,7 +93,7 @@ func QueryAllPairs() map[string]PairData {
 					txCount, err := strconv.Atoi(pairsItr.Get(count, "txCount").ToString())
 					reserve0, err := strconv.ParseFloat(pairsItr.Get(count, "reserve0").ToString(), 64)
 					reserve1, err := strconv.ParseFloat(pairsItr.Get(count, "reserve1").ToString(), 64)
-					if txCount < 500 {
+					if txCount < MIN_TX_COUNT {
 						count++
 						continue
 					}
@@ -172,7 +174,7 @@ func QueryAllPairs() map[string]PairData {
 							fmt.Println(string(bodyBytes))
 							log.Fatalf("failed to convert txcount to int with err: %v\n", err)
 						}
-						if txCount < 500 {
+						if txCount < MIN_TX_COUNT {
 							count++
 							continue
 						}
@@ -249,7 +251,7 @@ func QueryAllPairs() map[string]PairData {
 						fmt.Println(string(bodyBytes))
 						log.Fatalf("failed to convert txcount to int with err: %v\n", err)
 					}
-					if txCount < 500 {
+					if txCount < MIN_TX_COUNT {
 						count++
 						continue
 					}
