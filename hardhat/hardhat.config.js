@@ -23,7 +23,7 @@ module.exports = {
     networks: {
         hardhat: {
             forking: {
-                url: "https://eth-mainnet.alchemyapi.io/v2/NGCroFvBQGttBgsYVau8XAtnd4mtGKwb",
+                url: "RPC URL",
                 blockNumber: 12548820
             }
         }
